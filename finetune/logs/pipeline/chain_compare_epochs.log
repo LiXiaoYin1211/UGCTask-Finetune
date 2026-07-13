@@ -1,0 +1,10 @@
+written: /apdcephfs/private_hynnzhang/ServerFiles/finetune/../fc_eval/results/compare_sft_epochs.md
+推荐 checkpoint: SFT-ep2
+| B 多步首步 | 37.5% | 0.0% | 50.0% |
+| C 模糊追问 | 12.5% | 0.0% | 0.0% |
+
+## 三、选优与过拟合判断
+
+- **推荐 checkpoint：SFT-ep2**（`qwen3.5-2b-hf-sft_v1`），按 首步正确率 > 工具选择 > ask_user 召回 排序选出。
+- ✅ 未见明显过拟合：最后一轮不劣于更早轮次。
+- 相对 base 提升（SFT-ep2）：首步 -22.5 / 工具选择 +25.0 / ask_user 召回 +62.5。

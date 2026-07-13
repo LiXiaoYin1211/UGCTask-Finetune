@@ -1,0 +1,153 @@
+{
+  "think_off": {
+    "overall": {
+      "n": 40,
+      "tool_selection": [
+        50.0,
+        40
+      ],
+      "schema_valid": [
+        94.4,
+        36
+      ],
+      "required_complete": [
+        95.0,
+        20
+      ],
+      "value_correct": [
+        95.0,
+        20
+      ],
+      "first_step_correct": [
+        45.0,
+        40
+      ],
+      "made_tool_call": [
+        90.0,
+        40
+      ],
+      "hallucinated_tool": [
+        0.0,
+        40
+      ],
+      "hit_forbidden": [
+        2.5,
+        40
+      ]
+    },
+    "by_category": {
+      "A_simple": {
+        "n": 16,
+        "tool_selection": [
+          68.8,
+          16
+        ],
+        "schema_valid": [
+          100.0,
+          16
+        ],
+        "required_complete": [
+          100.0,
+          11
+        ],
+        "value_correct": [
+          100.0,
+          11
+        ],
+        "first_step_correct": [
+          68.8,
+          16
+        ],
+        "made_tool_call": [
+          100.0,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          0.0,
+          16
+        ]
+      },
+      "B_multistep": {
+        "n": 16,
+        "tool_selection": [
+          50.0,
+          16
+        ],
+        "schema_valid": [
+          87.5,
+          16
+        ],
+        "required_complete": [
+          87.5,
+          8
+        ],
+        "value_correct": [
+          87.5,
+          8
+        ],
+        "first_step_correct": [
+          37.5,
+          16
+        ],
+        "made_tool_call": [
+          100.0,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          6.2,
+          16
+        ]
+      },
+      "C_ambiguous": {
+        "n": 8,
+        "tool_selection": [
+          12.5,
+          8
+        ],
+        "schema_valid": [
+          100.0,
+          4
+        ],
+        "required_complete": [
+          100.0,
+          1
+        ],
+        "value_correct": [
+          100.0,
+          1
+        ],
+        "first_step_correct": [
+          12.5,
+          8
+        ],
+        "made_tool_call": [
+          50.0,
+          8
+        ],
+        "hallucinated_tool": [
+          0.0,
+          8
+        ],
+        "hit_forbidden": [
+          0.0,
+          8
+        ]
+      }
+    },
+    "ask_user": {
+      "precision": null,
+      "recall": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 8
+    }
+  }
+}

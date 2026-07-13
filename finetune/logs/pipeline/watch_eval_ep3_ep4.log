@@ -1,0 +1,328 @@
+[2026-07-11 15:21:49] [ep34] 等待续训 pid=80765 结束 ...
+[2026-07-11 18:27:50] [ep34] pid=80765 已结束
+[2026-07-11 18:27:55] [ep34] EVAL ep4(根) -> qwen3.5-2b-hf-sft_v1_ep4 (max_new=200)
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:03<19:36,  3.69s/it]Loading weights:   2%|▎         | 8/320 [00:03<01:49,  2.85it/s]Loading weights:   4%|▍         | 13/320 [00:03<01:01,  5.01it/s]Loading weights:   7%|▋         | 22/320 [00:04<00:30,  9.91it/s]Loading weights:   8%|▊         | 26/320 [00:04<00:23, 12.32it/s]Loading weights:   9%|▉         | 30/320 [00:04<00:20, 14.37it/s]Loading weights:  11%|█▏        | 36/320 [00:04<00:17, 16.54it/s]Loading weights:  12%|█▎        | 40/320 [00:04<00:14, 19.18it/s]Loading weights:  14%|█▍        | 44/320 [00:04<00:13, 20.72it/s]Loading weights:  15%|█▌        | 48/320 [00:05<00:14, 18.14it/s]Loading weights:  19%|█▉        | 61/320 [00:05<00:08, 29.33it/s]Loading weights:  20%|██        | 65/320 [00:05<00:09, 27.66it/s]Loading weights:  22%|██▏       | 69/320 [00:05<00:08, 28.08it/s]Loading weights:  24%|██▍       | 78/320 [00:05<00:06, 35.42it/s]Loading weights:  26%|██▌       | 82/320 [00:06<00:07, 29.86it/s]Loading weights:  29%|██▉       | 93/320 [00:06<00:05, 38.52it/s]Loading weights:  31%|███       | 98/320 [00:06<00:08, 27.26it/s]Loading weights:  32%|███▏      | 102/320 [00:06<00:07, 27.32it/s]Loading weights:  36%|███▌      | 114/320 [00:07<00:05, 40.65it/s]Loading weights:  37%|███▋      | 119/320 [00:07<00:05, 37.24it/s]Loading weights:  40%|████      | 128/320 [00:07<00:04, 41.04it/s]Loading weights:  42%|████▏     | 133/320 [00:07<00:05, 34.76it/s]Loading weights:  44%|████▍     | 142/320 [00:07<00:05, 31.75it/s]Loading weights:  46%|████▌     | 146/320 [00:08<00:05, 31.67it/s]Loading weights:  47%|████▋     | 150/320 [00:08<00:05, 31.07it/s]Loading weights:  48%|████▊     | 154/320 [00:08<00:06, 26.62it/s]Loading weights:  52%|█████▏    | 167/320 [00:08<00:03, 39.96it/s]Loading weights:  54%|█████▍    | 172/320 [00:08<00:04, 35.99it/s]Loading weights:  57%|█████▋    | 181/320 [00:08<00:03, 39.77it/s]Loading weights:  58%|█████▊    | 186/320 [00:09<00:03, 36.43it/s]Loading weights:  61%|██████    | 195/320 [00:09<00:03, 37.98it/s]Loading weights:  62%|██████▎   | 200/320 [00:09<00:03, 32.64it/s]Loading weights:  64%|██████▍   | 204/320 [00:09<00:03, 30.01it/s]Loading weights:  65%|██████▌   | 208/320 [00:09<00:03, 29.93it/s]Loading weights:  69%|██████▉   | 220/320 [00:10<00:02, 43.72it/s]Loading weights:  70%|███████   | 225/320 [00:10<00:02, 38.78it/s]Loading weights:  73%|███████▎  | 234/320 [00:10<00:01, 44.48it/s]Loading weights:  75%|███████▍  | 239/320 [00:10<00:02, 38.65it/s]Loading weights:  78%|███████▊  | 248/320 [00:10<00:01, 42.17it/s]Loading weights:  79%|███████▉  | 253/320 [00:10<00:01, 37.48it/s]Loading weights:  80%|████████  | 257/320 [00:11<00:01, 35.31it/s]Loading weights:  82%|████████▏ | 261/320 [00:11<00:01, 33.64it/s]Loading weights:  85%|████████▌ | 273/320 [00:11<00:01, 34.97it/s]Loading weights:  87%|████████▋ | 278/320 [00:11<00:01, 32.92it/s]Loading weights:  90%|████████▉ | 287/320 [00:11<00:00, 37.88it/s]Loading weights:  91%|█████████▏| 292/320 [00:12<00:00, 35.21it/s]Loading weights:  94%|█████████▍| 301/320 [00:12<00:00, 43.23it/s]Loading weights:  96%|█████████▌| 306/320 [00:12<00:00, 36.47it/s]Loading weights:  97%|█████████▋| 310/320 [00:12<00:00, 34.60it/s]Loading weights:  98%|█████████▊| 314/320 [00:12<00:00, 33.11it/s]Loading weights: 100%|██████████| 320/320 [00:12<00:00, 25.11it/s]
+[qwen3.5-2b-hf-sft_v1_ep4] scored -> /apdcephfs/private_hynnzhang/ServerFiles/fc_eval/results/qwen3.5-2b-hf-sft_v1_ep4
+{
+  "think_off": {
+    "overall": {
+      "n": 40,
+      "tool_selection": [
+        17.5,
+        40
+      ],
+      "schema_valid": [
+        0.0,
+        10
+      ],
+      "required_complete": [
+        71.4,
+        7
+      ],
+      "value_correct": [
+        100.0,
+        7
+      ],
+      "first_step_correct": [
+        0.0,
+        40
+      ],
+      "made_tool_call": [
+        25.0,
+        40
+      ],
+      "hallucinated_tool": [
+        0.0,
+        40
+      ],
+      "hit_forbidden": [
+        0.0,
+        40
+      ]
+    },
+    "by_category": {
+      "A_simple": {
+        "n": 16,
+        "tool_selection": [
+          12.5,
+          16
+        ],
+        "schema_valid": [
+          0.0,
+          4
+        ],
+        "required_complete": [
+          100.0,
+          2
+        ],
+        "value_correct": [
+          100.0,
+          2
+        ],
+        "first_step_correct": [
+          0.0,
+          16
+        ],
+        "made_tool_call": [
+          25.0,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          0.0,
+          16
+        ]
+      },
+      "B_multistep": {
+        "n": 16,
+        "tool_selection": [
+          18.8,
+          16
+        ],
+        "schema_valid": [
+          0.0,
+          3
+        ],
+        "required_complete": [
+          100.0,
+          3
+        ],
+        "value_correct": [
+          100.0,
+          3
+        ],
+        "first_step_correct": [
+          0.0,
+          16
+        ],
+        "made_tool_call": [
+          18.8,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          0.0,
+          16
+        ]
+      },
+      "C_ambiguous": {
+        "n": 8,
+        "tool_selection": [
+          25.0,
+          8
+        ],
+        "schema_valid": [
+          0.0,
+          3
+        ],
+        "required_complete": [
+          0.0,
+          2
+        ],
+        "value_correct": [
+          100.0,
+          2
+        ],
+        "first_step_correct": [
+          0.0,
+          8
+        ],
+        "made_tool_call": [
+          37.5,
+          8
+        ],
+        "hallucinated_tool": [
+          0.0,
+          8
+        ],
+        "hit_forbidden": [
+          0.0,
+          8
+        ]
+      }
+    },
+    "ask_user": {
+      "precision": 100.0,
+      "recall": 25.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 6
+    }
+  }
+}
+[2026-07-11 18:37:23] [ep34] EVAL ep3(checkpoint-63) -> qwen3.5-2b-hf-sft_v1_ep3 (max_new=200)
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:35,  9.10it/s]Loading weights:  17%|█▋        | 54/320 [00:00<00:00, 303.06it/s]Loading weights:  44%|████▍     | 142/320 [00:00<00:00, 553.09it/s]Loading weights:  70%|███████   | 224/320 [00:00<00:00, 650.15it/s]Loading weights:  96%|█████████▌| 306/320 [00:00<00:00, 705.39it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 596.89it/s]
+[qwen3.5-2b-hf-sft_v1_ep3] scored -> /apdcephfs/private_hynnzhang/ServerFiles/fc_eval/results/qwen3.5-2b-hf-sft_v1_ep3
+{
+  "think_off": {
+    "overall": {
+      "n": 40,
+      "tool_selection": [
+        22.5,
+        40
+      ],
+      "schema_valid": [
+        0.0,
+        12
+      ],
+      "required_complete": [
+        77.8,
+        9
+      ],
+      "value_correct": [
+        100.0,
+        9
+      ],
+      "first_step_correct": [
+        0.0,
+        40
+      ],
+      "made_tool_call": [
+        30.0,
+        40
+      ],
+      "hallucinated_tool": [
+        0.0,
+        40
+      ],
+      "hit_forbidden": [
+        0.0,
+        40
+      ]
+    },
+    "by_category": {
+      "A_simple": {
+        "n": 16,
+        "tool_selection": [
+          18.8,
+          16
+        ],
+        "schema_valid": [
+          0.0,
+          5
+        ],
+        "required_complete": [
+          100.0,
+          3
+        ],
+        "value_correct": [
+          100.0,
+          3
+        ],
+        "first_step_correct": [
+          0.0,
+          16
+        ],
+        "made_tool_call": [
+          31.2,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          0.0,
+          16
+        ]
+      },
+      "B_multistep": {
+        "n": 16,
+        "tool_selection": [
+          25.0,
+          16
+        ],
+        "schema_valid": [
+          0.0,
+          4
+        ],
+        "required_complete": [
+          100.0,
+          4
+        ],
+        "value_correct": [
+          100.0,
+          4
+        ],
+        "first_step_correct": [
+          0.0,
+          16
+        ],
+        "made_tool_call": [
+          25.0,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          0.0,
+          16
+        ]
+      },
+      "C_ambiguous": {
+        "n": 8,
+        "tool_selection": [
+          25.0,
+          8
+        ],
+        "schema_valid": [
+          0.0,
+          3
+        ],
+        "required_complete": [
+          0.0,
+          2
+        ],
+        "value_correct": [
+          100.0,
+          2
+        ],
+        "first_step_correct": [
+          0.0,
+          8
+        ],
+        "made_tool_call": [
+          37.5,
+          8
+        ],
+        "hallucinated_tool": [
+          0.0,
+          8
+        ],
+        "hit_forbidden": [
+          0.0,
+          8
+        ]
+      }
+    },
+    "ask_user": {
+      "precision": 100.0,
+      "recall": 25.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 6
+    }
+  }
+}
+[2026-07-11 18:45:12] [ep34] 生成五方对比 base/ep1/ep2/ep3/ep4 ...
+written: /apdcephfs/private_hynnzhang/ServerFiles/finetune/../fc_eval/results/compare_sft_epochs.md
+推荐 checkpoint: SFT-ep2
+| B 多步首步 | 37.5% | 0.0% | 50.0% | 0.0% | 0.0% |
+| C 模糊追问 | 12.5% | 0.0% | 0.0% | 0.0% | 0.0% |
+
+## 三、选优与过拟合判断
+
+- **推荐 checkpoint：SFT-ep2**（`qwen3.5-2b-hf-sft_v1`），按 首步正确率 > 工具选择 > ask_user 召回 排序选出。
+- ⚠️ **过拟合信号**：最后一轮 SFT-ep4 指标低于更早的 SFT-ep2 → 建议采用更早轮次、或减少 epoch 重训。
+- 相对 base 提升（SFT-ep2）：首步 -22.5 / 工具选择 +25.0 / ask_user 召回 +62.5。
+[2026-07-11 18:45:12] [ep34] 五方对比完成 -> fc_eval/results/compare_sft_epochs.md

@@ -1,0 +1,21 @@
+# FineTune 训练环境依赖（服务器重建用）
+# 用法:
+#   1) 先按服务器实际 CUDA 版本安装 PyTorch(不要直接用下面注释的 cu128 轮子,那是本地 RTX 5060 sm_120 专用):
+#        pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121   # 示例:按服务器 CUDA 调整
+#   2) 再安装其余依赖:
+#        pip install -r requirements.txt
+#
+# 本地训练验证过的版本(供对齐参考):
+#   torch==2.11.0+cu128  torchvision==0.26.0+cu128  torchaudio==2.11.0+cu128   # RTX 5060 / sm_120 专用,服务器请按自身 CUDA 重装
+
+transformers==5.12.1
+peft==0.19.1
+trl==1.7.0
+bitsandbytes==0.49.2
+datasets==5.0.0
+accelerate==1.14.0
+safetensors==0.8.0
+tokenizers==0.22.2
+jsonschema==4.26.0
+matplotlib==3.10.9
+numpy==2.2.6

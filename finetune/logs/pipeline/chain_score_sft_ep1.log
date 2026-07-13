@@ -1,0 +1,154 @@
+[qwen3.5-2b-hf-sft_v1_ep1] scored -> /apdcephfs/private_hynnzhang/ServerFiles/fc_eval/results/qwen3.5-2b-hf-sft_v1_ep1
+{
+  "think_off": {
+    "overall": {
+      "n": 40,
+      "tool_selection": [
+        72.5,
+        40
+      ],
+      "schema_valid": [
+        5.3,
+        38
+      ],
+      "required_complete": [
+        100.0,
+        29
+      ],
+      "value_correct": [
+        100.0,
+        29
+      ],
+      "first_step_correct": [
+        2.5,
+        40
+      ],
+      "made_tool_call": [
+        95.0,
+        40
+      ],
+      "hallucinated_tool": [
+        0.0,
+        40
+      ],
+      "hit_forbidden": [
+        5.0,
+        40
+      ]
+    },
+    "by_category": {
+      "A_simple": {
+        "n": 16,
+        "tool_selection": [
+          87.5,
+          16
+        ],
+        "schema_valid": [
+          6.2,
+          16
+        ],
+        "required_complete": [
+          100.0,
+          14
+        ],
+        "value_correct": [
+          100.0,
+          14
+        ],
+        "first_step_correct": [
+          6.2,
+          16
+        ],
+        "made_tool_call": [
+          100.0,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          0.0,
+          16
+        ]
+      },
+      "B_multistep": {
+        "n": 16,
+        "tool_selection": [
+          56.2,
+          16
+        ],
+        "schema_valid": [
+          7.1,
+          14
+        ],
+        "required_complete": [
+          100.0,
+          9
+        ],
+        "value_correct": [
+          100.0,
+          9
+        ],
+        "first_step_correct": [
+          0.0,
+          16
+        ],
+        "made_tool_call": [
+          87.5,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          12.5,
+          16
+        ]
+      },
+      "C_ambiguous": {
+        "n": 8,
+        "tool_selection": [
+          75.0,
+          8
+        ],
+        "schema_valid": [
+          0.0,
+          8
+        ],
+        "required_complete": [
+          100.0,
+          6
+        ],
+        "value_correct": [
+          100.0,
+          6
+        ],
+        "first_step_correct": [
+          0.0,
+          8
+        ],
+        "made_tool_call": [
+          100.0,
+          8
+        ],
+        "hallucinated_tool": [
+          0.0,
+          8
+        ],
+        "hit_forbidden": [
+          0.0,
+          8
+        ]
+      }
+    },
+    "ask_user": {
+      "precision": 85.7,
+      "recall": 75.0,
+      "tp": 6,
+      "fp": 1,
+      "fn": 2
+    }
+  }
+}

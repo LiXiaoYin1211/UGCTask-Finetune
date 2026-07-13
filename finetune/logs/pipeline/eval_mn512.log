@@ -1,0 +1,159 @@
+[2026-07-11 15:03:10] MN512 RERUN START
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:35,  9.00it/s]Loading weights:  11%|█▏        | 36/320 [00:00<00:01, 197.91it/s]Loading weights:  37%|███▋      | 117/320 [00:00<00:00, 468.08it/s]Loading weights:  62%|██████▏   | 199/320 [00:00<00:00, 597.89it/s]Loading weights:  87%|████████▋ | 278/320 [00:00<00:00, 662.89it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 561.62it/s]
+[qwen3.5-2b-hf-sft_v1_mn512] scored -> /apdcephfs/private_hynnzhang/ServerFiles/fc_eval/results/qwen3.5-2b-hf-sft_v1_mn512
+{
+  "think_off": {
+    "overall": {
+      "n": 40,
+      "tool_selection": [
+        75.0,
+        40
+      ],
+      "schema_valid": [
+        27.8,
+        36
+      ],
+      "required_complete": [
+        100.0,
+        30
+      ],
+      "value_correct": [
+        100.0,
+        30
+      ],
+      "first_step_correct": [
+        22.5,
+        40
+      ],
+      "made_tool_call": [
+        90.0,
+        40
+      ],
+      "hallucinated_tool": [
+        0.0,
+        40
+      ],
+      "hit_forbidden": [
+        2.5,
+        40
+      ]
+    },
+    "by_category": {
+      "A_simple": {
+        "n": 16,
+        "tool_selection": [
+          75.0,
+          16
+        ],
+        "schema_valid": [
+          7.7,
+          13
+        ],
+        "required_complete": [
+          100.0,
+          12
+        ],
+        "value_correct": [
+          100.0,
+          12
+        ],
+        "first_step_correct": [
+          6.2,
+          16
+        ],
+        "made_tool_call": [
+          81.2,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          0.0,
+          16
+        ]
+      },
+      "B_multistep": {
+        "n": 16,
+        "tool_selection": [
+          81.2,
+          16
+        ],
+        "schema_valid": [
+          56.2,
+          16
+        ],
+        "required_complete": [
+          100.0,
+          13
+        ],
+        "value_correct": [
+          100.0,
+          13
+        ],
+        "first_step_correct": [
+          50.0,
+          16
+        ],
+        "made_tool_call": [
+          100.0,
+          16
+        ],
+        "hallucinated_tool": [
+          0.0,
+          16
+        ],
+        "hit_forbidden": [
+          6.2,
+          16
+        ]
+      },
+      "C_ambiguous": {
+        "n": 8,
+        "tool_selection": [
+          62.5,
+          8
+        ],
+        "schema_valid": [
+          0.0,
+          7
+        ],
+        "required_complete": [
+          100.0,
+          5
+        ],
+        "value_correct": [
+          100.0,
+          5
+        ],
+        "first_step_correct": [
+          0.0,
+          8
+        ],
+        "made_tool_call": [
+          87.5,
+          8
+        ],
+        "hallucinated_tool": [
+          0.0,
+          8
+        ],
+        "hit_forbidden": [
+          0.0,
+          8
+        ]
+      }
+    },
+    "ask_user": {
+      "precision": 100.0,
+      "recall": 62.5,
+      "tp": 5,
+      "fp": 0,
+      "fn": 3
+    }
+  }
+}
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:47,  6.76it/s]Loading weights:  14%|█▍        | 45/320 [00:00<00:01, 215.94it/s]Loading weights:  36%|███▌      | 114/320 [00:00<00:00, 405.47it/s]Loading weights:  56%|█████▋    | 180/320 [00:00<00:00, 498.47it/s]Loading weights:  75%|███████▌  | 240/320 [00:00<00:00, 529.50it/s]Loading weights:  96%|█████████▌| 307/320 [00:00<00:00, 568.24it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 471.07it/s]

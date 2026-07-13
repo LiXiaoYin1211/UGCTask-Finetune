@@ -1,0 +1,36 @@
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:35,  8.92it/s]Loading weights:  14%|█▍        | 46/320 [00:00<00:01, 255.62it/s]Loading weights:  29%|██▉       | 92/320 [00:00<00:00, 346.19it/s]Loading weights:  53%|█████▎    | 171/320 [00:00<00:00, 515.30it/s]Loading weights:  70%|███████   | 224/320 [00:00<00:00, 481.44it/s]Loading weights:  95%|█████████▌| 305/320 [00:00<00:00, 571.32it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 437.47it/s]
+Fatal Python error: Floating-point exception
+
+Thread 0x00007f47c245d700 (most recent call first):
+  File "/apdcephfs/private_hynnzhang/ServerFiles/.uv_python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/threading.py", line 359 in wait
+  File "/apdcephfs/private_hynnzhang/ServerFiles/.uv_python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/threading.py", line 655 in wait
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/tqdm/_monitor.py", line 69 in run
+  File "/apdcephfs/private_hynnzhang/ServerFiles/.uv_python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+  File "/apdcephfs/private_hynnzhang/ServerFiles/.uv_python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+Thread 0x00007f47c9449700 (most recent call first):
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 47 in _recv_msg
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 153 in _read_thread
+  File "/apdcephfs/private_hynnzhang/ServerFiles/.uv_python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/threading.py", line 1012 in run
+  File "/apdcephfs/private_hynnzhang/ServerFiles/.uv_python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/threading.py", line 1075 in _bootstrap_inner
+  File "/apdcephfs/private_hynnzhang/ServerFiles/.uv_python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/threading.py", line 1032 in _bootstrap
+
+Current thread 0x00007f4b324b9740 (most recent call first):
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/torch/nn/modules/linear.py", line 125 in forward
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747 in _call_impl
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736 in _wrapped_call_impl
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1667 in forward
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/utils/generic.py", line 911 in wrapper
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747 in _call_impl
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736 in _wrapped_call_impl
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/generation/utils.py", line 3896 in _prefill
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/generation/utils.py", line 2845 in _sample
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/generation/utils.py", line 2645 in generate
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116 in decorate_context
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune/src/eval/eval_hf.py", line 152 in generate
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116 in decorate_context
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune/src/eval/eval_hf.py", line 190 in main
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune/src/eval/eval_hf.py", line 217 in <module>
+
+Extension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, torch._C, torch._C._dynamo.autograd_compiler, torch._C._dynamo.eval_frame, torch._C._dynamo.guards, torch._C._dynamo.utils, torch._C._fft, torch._C._linalg, torch._C._nested, torch._C._nn, torch._C._sparse, torch._C._special, regex._regex, yaml._yaml, markupsafe._speedups, PIL._imaging, psutil._psutil_linux, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._pcg64, numpy.random._generator, numpy.random._mt19937, numpy.random._philox, numpy.random._sfc64, numpy.random.mtrand (total: 27)

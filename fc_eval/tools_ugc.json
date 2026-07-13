@@ -1,0 +1,344 @@
+{
+  "_comment": "22个工具的 OpenAI-style function 定义,提取自 MyDataFiles/01_工具Schema.md。会话 scope=GameRuntime,因此全部17个UGC工具可见+5个内置工具。供 /api/chat 的 tools 字段使用。",
+  "scope": "GameRuntime",
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "unreal_info",
+        "description": "Return engine/project/platform environment info. Use when the user asks about current engine version/project/platform/editor mode.",
+        "parameters": {"type": "object", "properties": {}, "additionalProperties": false}
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "list_skills",
+        "description": "List runtime-available skills. Refresh/verify the skill catalog.",
+        "parameters": {"type": "object", "properties": {}, "additionalProperties": false}
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "load_skill",
+        "description": "Load the full instructions of a named skill into context.",
+        "parameters": {
+          "type": "object",
+          "properties": {"name": {"type": "string", "description": "The exact skill name. Must match one of the names returned by list_skills."}},
+          "required": ["name"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "task",
+        "description": "Launch a new subagent session to handle a complex, multi-step task. Use when the task warrants its own isolated context and tool scope. The subagent runs with its own system prompt and tool policy, and returns a single textual summary back to you.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "description": {"type": "string", "description": "A short (3-5 word) description of the task. Shown in the UI only."},
+            "prompt": {"type": "string", "description": "The exact task for the subagent. Must be fully self-contained because the subagent starts without any of your conversation history."},
+            "subagent_type": {"type": "string", "enum": ["general", "example-agent"], "description": "Which subagent to launch. Must match a registered subagent name."}
+          },
+          "required": ["description", "prompt", "subagent_type"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ask_user",
+        "description": "Ask the user one necessary clarifying question before continuing. Use ONLY when a missing required decision or high-risk ambiguity affects correctness AND cannot be resolved with available tools. Do NOT use for optional preferences, greetings, or task summaries.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "question": {"type": "string", "description": "A clear, necessary, answerable question to ask the user before continuing."},
+            "options": {"type": "array", "items": {"type": "string"}, "description": "Optional quick replies. The user may still provide a custom answer."}
+          },
+          "required": ["question"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_get_item_catalog",
+        "description": "Return the runtime UGC item catalog. With 'name', performs semantic Top-N retrieval (falls back to fuzzy name match if semantic is unavailable). Use to find a valid item_table_id by description.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "category": {"type": "string", "enum": ["homestead", "furniture"]},
+            "name": {"type": "string", "description": "ASCII English-only name or NL query for semantic/fuzzy search."},
+            "include_details": {"type": "boolean", "description": "Include template/bounds/flags/face_meanings/surfaces. Default false."},
+            "surface_type": {"type": "integer", "description": "Filter by carrying-surface type id."},
+            "limit": {"type": "integer", "minimum": 1, "maximum": 50, "description": "Required when 'name' is provided (used as semantic TopK)."}
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_get_scene_summary",
+        "description": "Summarize the current UGC runtime scene: entity counts per item type + home bounds.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "include_empty_types": {"type": "boolean", "description": "Default false."},
+            "include_item_unique_counts": {"type": "boolean", "description": "Default true."}
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_query_entities_by_type",
+        "description": "Query placed entities in the active world by item_table_id. Primary path to obtain unique_id of placed instances.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "item_table_id": {"type": "integer", "description": "Item config id (which kind)."},
+            "limit": {"type": "integer", "description": "Default 50, clamped 1~200."}
+          },
+          "required": ["item_table_id"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_query_entities_by_area",
+        "description": "Spherical spatial query sorted by distance. level=entity uses pivot+euclidean; level=building uses CPG bounds+SVO path.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "center": {"type": "object", "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "z": {"type": "number"}}, "required": ["x", "y", "z"]},
+            "radius": {"type": "number"},
+            "item_table_id": {"type": "integer"},
+            "limit": {"type": "integer", "description": "Default 50, clamped 1~200."},
+            "level": {"type": "string", "enum": ["entity", "building"], "description": "Default entity."},
+            "use_svo_filter": {"type": "boolean", "description": "Default false."}
+          },
+          "required": ["center", "radius"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_get_entity_detail",
+        "description": "Return detailed runtime info of a single entity by unique_id, including carrying surfaces. Prerequisite for placing onto a specific surface.",
+        "parameters": {
+          "type": "object",
+          "properties": {"unique_id": {"type": "integer", "description": "Unique instance id of a placed entity."}},
+          "required": ["unique_id"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_get_house_info",
+        "description": "Return the full entity composition tree of all buildings (structure + furniture). No parameters.",
+        "parameters": {"type": "object", "properties": {}, "additionalProperties": false}
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_get_indoor_info",
+        "description": "Classify all HouseGround floors as indoor/outdoor. Classification only, not an availability filter. No parameters.",
+        "parameters": {"type": "object", "properties": {}, "additionalProperties": false}
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_query_paint_surfaces",
+        "description": "Query an entity's paintable surfaces and their current paint state by unique_id.",
+        "parameters": {
+          "type": "object",
+          "properties": {"unique_id": {"type": "integer"}},
+          "required": ["unique_id"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_query_paint_brushes",
+        "description": "Query global texture brushes + color-brush schema. Does NOT need unique_id.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "texture_brush_id": {"type": "string", "description": "Optional exact filter."},
+            "keyword": {"type": "string", "description": "Optional fuzzy filter."}
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_get_player_context",
+        "description": "Get current runtime player world location and facing. Use nearby_center as the center point for vague spatial needs like 'nearby' / 'in front of me'.",
+        "parameters": {"type": "object", "properties": {}, "additionalProperties": false}
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_analyze_scene_capture",
+        "description": "Capture the current player camera view and attach it to the AI session for visual analysis. Use when the user asks about scene/building style/layout/color/material/visible objects.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "prompt": {"type": "string", "description": "The visual question, ideally the user's own words."},
+            "max_image_width": {"type": "integer", "description": "Default 1024, range 256~1536."},
+            "jpeg_quality": {"type": "integer", "description": "Default 80, range 40~95."}
+          },
+          "required": ["prompt"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_create_entity",
+        "description": "Atomically create an entity at world coordinates by item_table_id+location(+rotation). ONLY when the final world coordinate is already determined. Does NOT auto-find surfaces / snap to ground / collision pre-check. To place onto an existing surface you MUST use ugc_place_on_surface instead.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "item_table_id": {"type": "integer"},
+            "location": {"type": "object", "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "z": {"type": "number"}}, "required": ["x", "y", "z"]},
+            "rotation": {"type": "object", "properties": {"pitch": {"type": "number"}, "yaw": {"type": "number"}, "roll": {"type": "number"}}}
+          },
+          "required": ["item_table_id", "location"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_place_on_surface",
+        "description": "Place item(s) onto an existing entity's carrying surface (floor/table/shelf/platform/wall). MUST be preferred when placing onto an existing surface. Requires querying the target_entity_id first. Internally does collision detection + auto-relocation.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "target_entity_id": {"type": "integer", "description": "unique_id of the target entity."},
+            "surface_index": {"type": "integer", "description": "Default first top-facing surface."},
+            "item_label": {"type": "string"},
+            "placement_category": {"type": "string", "enum": ["top", "wall", "ceiling"]},
+            "surface_context": {"type": "string"},
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "item_table_id": {"type": "integer"},
+                  "item_label": {"type": "string"},
+                  "surface_context": {"type": "string"},
+                  "offset": {"type": "object", "properties": {"x": {"type": "number"}, "y": {"type": "number"}}},
+                  "yaw": {"type": "number"}
+                },
+                "required": ["item_table_id"]
+              }
+            }
+          },
+          "required": ["target_entity_id", "items"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_delete_entity",
+        "description": "Delete a single UGC entity by unique_id. Requires querying the unique_id first.",
+        "parameters": {
+          "type": "object",
+          "properties": {"unique_id": {"type": "integer"}},
+          "required": ["unique_id"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_move_entity",
+        "description": "Move or rotate a single entity by unique_id. Only changes provided fields. At least one of new_location/new_rotation must be provided.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "unique_id": {"type": "integer"},
+            "new_location": {"type": "object", "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "z": {"type": "number"}}},
+            "new_rotation": {"type": "object", "properties": {"pitch": {"type": "number"}, "yaw": {"type": "number"}, "roll": {"type": "number"}}}
+          },
+          "required": ["unique_id"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_paint_texture_surface",
+        "description": "Apply a texture brush to a named paint surface by unique_id. Recommend querying paint surfaces + brushes first.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "unique_id": {"type": "integer"},
+            "surface_name": {"type": "string"},
+            "texture_brush_id": {"type": "string"}
+          },
+          "required": ["unique_id", "surface_name", "texture_brush_id"],
+          "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "ugc_paint_color_surface",
+        "description": "Apply color params to a named paint surface by unique_id. Colors must be #RRGGBB or #RRGGBBAA.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "unique_id": {"type": "integer"},
+            "surface_name": {"type": "string"},
+            "color_params": {
+              "type": "object",
+              "properties": {
+                "custom_color1": {"type": "string"},
+                "custom_color2": {"type": "string"},
+                "custom_color3": {"type": "string"},
+                "custom_color4": {"type": "string"}
+              }
+            }
+          },
+          "required": ["unique_id", "surface_name", "color_params"],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

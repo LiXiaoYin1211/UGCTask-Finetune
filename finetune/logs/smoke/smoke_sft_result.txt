@@ -1,0 +1,53 @@
+STEP1 build model+tok ... (tag= epochs=3)
+STEP1 OK: Qwen3_5ForCausalLM
+STEP2 dataset: train=16 eval=0
+STEP3 trainer built, start train ...
+STEP4 train() returned OK
+SMOKE OK: SFT 全链路通过
+STEP4 train() returned OK
+SMOKE OK: SFT 全链路通过
+STEP1 build model+tok ... (tag=_v1 epochs=3)
+STEP1 OK: Qwen3_5ForCausalLM
+STEP2 dataset: train=1000 eval=0
+STEP3 trainer built, start train ...
+STEP1 build model+tok ... (tag=_v1 epochs=3)
+STEP1 OK: Qwen3_5ForCausalLM
+STEP2 dataset: train=1000 eval=0
+STEP3 trainer built, start train ...
+STEP1 build model+tok ... (tag=_v1 epochs=3)
+STEP1 OK: Qwen3_5ForCausalLM
+STEP2 dataset: train=1000 eval=0
+STEP3 trainer built, start train ...
+STEP1 build model+tok ... (tag=_v1 epochs=4)
+STEP1 OK: Qwen3_5ForCausalLM
+STEP2 dataset: train=1000 eval=0
+STEP3 trainer built, start train ... (resume=outputs/sft_lora_v1/checkpoint-126)
+FAIL: ValueError: Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.
+See the vulnerability report here https://nvd.nist.gov/vuln/detail/CVE-2025-32434
+Traceback (most recent call last):
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune/src/train/train_sft.py", line 167, in <module>
+    main()
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune/src/train/train_sft.py", line 153, in main
+    trainer.train(resume_from_checkpoint=a.resume)
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/trainer.py", line 1433, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/trainer.py", line 1472, in _inner_training_loop
+    model, train_dataloader = self._prepare_for_training(max_steps, train_dataloader, resume_from_checkpoint)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/trainer.py", line 1652, in _prepare_for_training
+    self._load_optimizer_and_scheduler(resume_from_checkpoint)
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/trainer.py", line 3678, in _load_optimizer_and_scheduler
+    check_torch_load_is_safe()
+  File "/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 1440, in check_torch_load_is_safe
+    raise ValueError(
+ValueError: Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.
+See the vulnerability report here https://nvd.nist.gov/vuln/detail/CVE-2025-32434
+
+STEP1 build model+tok ... (tag=_v1_ep4 epochs=2 init_adapter=outputs/sft_lora_v1_ep2_bak)
+STEP1 OK: Qwen3_5ForCausalLM
+STEP1b loaded init adapter (trainable) from /apdcephfs/private_hynnzhang/ServerFiles/finetune/outputs/sft_lora_v1_ep2_bak
+STEP2 dataset: train=1000 eval=0
+STEP3 trainer built, start train ... (resume=None)
+STEP4 train() returned OK
+STEP5 SFT LoRA saved -> /apdcephfs/private_hynnzhang/ServerFiles/finetune/outputs/sft_lora_v1_ep4

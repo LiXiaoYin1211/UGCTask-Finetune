@@ -1,0 +1,51 @@
+{
+  "_comment": "真实 UGC 物品表,提取自 MyDataFiles/UGCFurnitureItemTable.png。item_table_id=配置ID(哪一种),与已放置实体的 unique_id(哪一个)解耦。语义关键词用于口语query->检索词映射。",
+  "primitives": [
+    {"item_table_id": 1, "name": "Cube", "keywords": ["cube", "方块", "立方体"]},
+    {"item_table_id": 2, "name": "Sphere", "keywords": ["sphere", "ball", "球"]},
+    {"item_table_id": 3, "name": "VoxelCube", "keywords": ["voxel", "体素方块"]},
+    {"item_table_id": 4, "name": "stair", "keywords": ["stair", "stairs", "楼梯", "台阶"]},
+    {"item_table_id": 5, "name": "Chalkboard", "keywords": ["chalkboard", "blackboard", "黑板"]},
+    {"item_table_id": 6, "name": "BlockMesh", "keywords": ["block", "blockmesh", "积木块"]},
+    {"item_table_id": 7, "name": "Floor_static", "keywords": ["floor", "static floor", "静态地板"]}
+  ],
+  "house": [
+    {"item_table_id": 1001, "name": "HouseGround", "keywords": ["floor", "ground", "地板", "地面"]},
+    {"item_table_id": 1002, "name": "HouseWall", "keywords": ["wall", "墙", "墙面"]},
+    {"item_table_id": 1003, "name": "HouseRoof", "keywords": ["roof", "屋顶", "房顶"]}
+  ],
+  "furniture": [
+    {"item_table_id": 2001, "name": "Chair", "keywords": ["chair", "椅子"]},
+    {"item_table_id": 2002, "name": "Table", "keywords": ["table", "desk", "桌子"]},
+    {"item_table_id": 2003, "name": "Plate1", "keywords": ["plate", "餐盘", "盘子"]},
+    {"item_table_id": 2004, "name": "Plate2", "keywords": ["plate", "餐盘", "盘子"]},
+    {"item_table_id": 2005, "name": "Books", "keywords": ["book", "books", "书", "书本"]},
+    {"item_table_id": 2006, "name": "Bottle", "keywords": ["bottle", "瓶子"]},
+    {"item_table_id": 2007, "name": "Candle", "keywords": ["candle", "蜡烛"]},
+    {"item_table_id": 2008, "name": "Carpet", "keywords": ["carpet", "rug", "地毯"]},
+    {"item_table_id": 2009, "name": "ClothChair", "keywords": ["cloth chair", "布艺椅", "软椅"]},
+    {"item_table_id": 2010, "name": "CoffeeTable", "keywords": ["coffee table", "茶几"]},
+    {"item_table_id": 2011, "name": "Fridge", "keywords": ["fridge", "refrigerator", "冰箱"]},
+    {"item_table_id": 2012, "name": "HighChair", "keywords": ["high chair", "高脚椅", "吧椅"]},
+    {"item_table_id": 2013, "name": "Kitchen", "keywords": ["kitchen", "厨房", "灶台"]},
+    {"item_table_id": 2014, "name": "KitchenIslandTable", "keywords": ["kitchen island", "中岛", "岛台"]},
+    {"item_table_id": 2015, "name": "Lamp", "keywords": ["lamp", "台灯", "灯"]},
+    {"item_table_id": 2016, "name": "Picture", "keywords": ["picture", "painting", "挂画", "画"]},
+    {"item_table_id": 2017, "name": "Pillows", "keywords": ["pillow", "pillows", "枕头", "抱枕"]},
+    {"item_table_id": 2018, "name": "Plant", "keywords": ["plant", "盆栽", "植物"]},
+    {"item_table_id": 2019, "name": "Shelves", "keywords": ["shelf", "shelves", "架子", "书架"]},
+    {"item_table_id": 2020, "name": "SideBoard", "keywords": ["sideboard", "边柜", "餐边柜"]},
+    {"item_table_id": 2021, "name": "Sofa", "keywords": ["sofa", "couch", "沙发"]},
+    {"item_table_id": 2022, "name": "Vase", "keywords": ["vase", "花瓶"]},
+    {"item_table_id": 2023, "name": "Wineglass", "keywords": ["wineglass", "glass", "酒杯"]}
+  ],
+  "voxel_building": [
+    {"item_table_id": 3001, "name": "VoxelCube_2x2", "keywords": ["voxel 2x2"]},
+    {"item_table_id": 3002, "name": "VoxelCube_3x3", "keywords": ["voxel 3x3"]},
+    {"item_table_id": 3003, "name": "VoxelCube_Pillar", "keywords": ["voxel pillar", "体素柱"]},
+    {"item_table_id": 3004, "name": "VoxelCube_Rampart", "keywords": ["voxel rampart", "城墙"]},
+    {"item_table_id": 3005, "name": "VoxelCube_Stairs", "keywords": ["voxel stairs", "体素楼梯"]},
+    {"item_table_id": 3006, "name": "VoxelCube_Steps", "keywords": ["voxel steps", "体素台阶"]},
+    {"item_table_id": 3007, "name": "VoxelCube_WallWindow", "keywords": ["voxel wall window", "带窗墙"]}
+  ]
+}

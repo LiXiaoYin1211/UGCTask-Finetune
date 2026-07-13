@@ -1,0 +1,3 @@
+stage=sft source=trainer_state.json rows=126
+written: /apdcephfs/private_hynnzhang/ServerFiles/finetune/logs/pipeline/sft_curve_v1_ep4.png
+written: /apdcephfs/private_hynnzhang/ServerFiles/finetune/logs/pipeline/sft_curve_v1_ep4.csv

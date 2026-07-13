@@ -1,0 +1,10 @@
+[2026-07-11 11:12:24] SFT-ONLY CHAIN START tag=_v1 sft_ep=3 PY=/apdcephfs/private_hynnzhang/ServerFiles/finetune_env312/bin/python (DPO 暂缓, 依据>8h规则)
+[2026-07-11 11:12:24] PREFLIGHT: 清理残留 python 进程
+[2026-07-11 11:12:27] SFT START -> /apdcephfs/private_hynnzhang/ServerFiles/finetune/outputs/sft_lora_v1
+[2026-07-11 11:28:01] [ep-cmp] 等待训练进程 pid=15942 结束 ...
+[2026-07-11 15:21:49] [ep34] 等待续训 pid=80765 结束 ...
+[2026-07-11 18:27:50] [ep34] pid=80765 已结束
+[2026-07-11 18:27:55] [ep34] EVAL ep4(根) -> qwen3.5-2b-hf-sft_v1_ep4 (max_new=200)
+[2026-07-11 18:37:23] [ep34] EVAL ep3(checkpoint-63) -> qwen3.5-2b-hf-sft_v1_ep3 (max_new=200)
+[2026-07-11 18:45:12] [ep34] 生成五方对比 base/ep1/ep2/ep3/ep4 ...
+[2026-07-11 18:45:12] [ep34] 五方对比完成 -> fc_eval/results/compare_sft_epochs.md
